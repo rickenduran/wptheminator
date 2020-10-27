@@ -1,5 +1,29 @@
-<?php get_header( 'splash' ); ?>
+<?php get_header(); ?>
 
-    <h1>index.php</h1>
+  <div id="primary" class="content-area">
 
-<?php get_footer( 'splash' ); ?>
+    <main id="main" class="site-main" role="main">
+
+      <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+        <header id="entry-header">
+
+          <h1>index.php</h1>
+
+        </header>
+
+        <div class="entry-content">
+
+          <p>Lorem.</p>
+
+        </div>
+
+      </article>
+
+    </main>
+
+  </div>
+
+  <?php get_sidebar(); ?>
+
+<?php get_footer(); ?>
