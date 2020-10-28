@@ -4,21 +4,43 @@
 
     <main id="main" class="site-main" role="main">
 
-      <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-        <header id="entry-header">
+        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-          <h1>index.php</h1>
+          <header id="entry-header">
 
-        </header>
+            <?php the_title( '<h1>', '</h1>' ); ?>
 
-        <div class="entry-content">
+          </header>
 
-          <p>Lorem.</p>
+          <div class="entry-content">
 
-        </div>
+            <?php the_content(); ?>
 
-      </article>
+          </div>
+
+        </article>
+
+      <?php endwhile; else : ?>
+
+        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+          <header id="entry-header">
+
+            <h1><?php esc_html_e ( '404', 'wptheminator' ); ?> </h1>
+
+          </header>
+
+          <div class="entry-content">
+
+          <p><?php esc_html_e( 'No Content.', 'wptheminator' ); ?></p>
+
+          </div>
+
+        </article>
+
+      <?php endif; ?>
 
     </main>
 
